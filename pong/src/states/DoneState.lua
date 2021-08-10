@@ -11,6 +11,7 @@ function DoneState:update(dt)
 
     if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
         gStateMachine:change('serve', {
+            servingPlayer = servingPlayer
         })
     end
 end

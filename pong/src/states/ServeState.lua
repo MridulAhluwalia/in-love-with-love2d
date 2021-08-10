@@ -10,13 +10,6 @@ function ServeState:init()
 
     -- ball initialization
     ball = Ball(VIRTUAL_WIDTH/2 - 2, VIRTUAL_HEIGHT/2 - 2, 4, 4)
-
-    ball.dy = math.random(-50, 50)
-    if servingPlayer == 1 then
-        ball.dx = math.random(150, 200)
-    else
-        ball.dx = -math.random(150, 200)
-    end
 end
 
 
@@ -28,6 +21,13 @@ end
 
 
 function ServeState:update(dt)
+    ball.dy = math.random(-50, 50)
+    if servingPlayer == 1 then
+        ball.dx = math.random(150, 200)
+    else
+        ball.dx = -math.random(150, 200)
+    end
+
     if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
         gStateMachine:change('play')
     end
