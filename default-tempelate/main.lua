@@ -16,6 +16,9 @@ function love.load()
         ['medium'] = love.graphics.newFont('fonts/pixel.ttf', 16),
         ['large'] = love.graphics.newFont('fonts/pixel.ttf', 32)
     }
+
+    -- initialize input table
+    love.keyboard.keysPressed = {}
 end
 
 
@@ -30,6 +33,11 @@ function love.draw()
     displayFPS()
 
     push:finish()
+end
+
+
+function love.resize(w, h)
+    push:resize(w, h)
 end
 
 
