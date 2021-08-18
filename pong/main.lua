@@ -23,6 +23,14 @@ function love.load()
         ['wall_hit'] = love.audio.newSource('sounds/wall_hit.wav', 'static')
     }
 
+    gTexture = {
+        ['universe'] = love.graphics.newImage('graphics/universe.png'),
+        ['planets'] = love.graphics.newImage('graphics/planets.png'),
+        ['ball'] = love.graphics.newImage('graphics/ball.png'),
+        ['paddle_1'] = love.graphics.newImage('graphics/paddle_1.png'),
+        ['paddle_2'] = love.graphics.newImage('graphics/paddle_2.png')
+    }
+
     gStateMachine = StateMachine {
         ['start'] = function() return StartState() end,
         ['play'] = function() return PlayState() end,
