@@ -66,7 +66,7 @@ echo -e "${TEXT}" > ${FILE}
 
 # Add to dependecy file
 DEPENDENCY_FILE='./src/Dependencies.lua'
-gsed -i -e "/-- $TYPE/ a ${OUTPUT_PATH}/${CLASS}" ${DEPENDENCY_FILE}
+gsed -i -e "/-- $TYPE/ a require '${OUTPUT_PATH}/${CLASS}'" ${DEPENDENCY_FILE}
 
 # Add state machine to mail file
 if [[ $TYPE == 'states' ]]
