@@ -1,4 +1,4 @@
-CountdownState = Class{__includes = BaseState}
+CountdownState = Class { __includes = BaseState }
 
 
 local COUNTDOWN_TIME = 0.75
@@ -8,7 +8,6 @@ function CountdownState:init()
     self.count = 3
     self.timer = 0
 end
-
 
 function CountdownState:update(dt)
     self.timer = self.timer + dt
@@ -22,7 +21,6 @@ function CountdownState:update(dt)
         end
     end
 end
-
 
 function CountdownState:render()
     love.graphics.setFont(gFonts['flappyLarge'])

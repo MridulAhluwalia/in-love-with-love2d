@@ -1,17 +1,15 @@
-ScoreState = Class{__includes = BaseState}
+ScoreState = Class { __includes = BaseState }
 
 
 function ScoreState:enter(params)
     self.score = params.score
 end
 
-
 function ScoreState:update(dt)
     if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
         gStateMachine:change('countdown')
     end
 end
-
 
 function ScoreState:render()
     -- simply render the score to the middle of the screen

@@ -1,4 +1,4 @@
-TitleScreenState = Class{__includes = BaseState}
+TitleScreenState = Class { __includes = BaseState }
 
 
 function TitleScreenState:update(dt)
@@ -6,7 +6,6 @@ function TitleScreenState:update(dt)
         gStateMachine:change('countdown')
     end
 end
-
 
 function TitleScreenState:render()
     love.graphics.setFont(gFonts['flappyMedium'])

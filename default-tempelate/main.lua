@@ -21,11 +21,9 @@ function love.load()
     love.keyboard.keysPressed = {}
 end
 
-
 function love.update(dt)
     love.keyboard.keysPressed = {}
 end
-
 
 function love.draw()
     push:start()
@@ -35,11 +33,9 @@ function love.draw()
     push:finish()
 end
 
-
 function love.resize(w, h)
     push:resize(w, h)
 end
-
 
 function love.keypressed(key)
     if key == 'escape' then
@@ -49,11 +45,9 @@ function love.keypressed(key)
     love.keyboard.keysPressed[key] = true
 end
 
-
 function love.keyboard.wasPressed(key)
     return love.keyboard.keysPressed[key]
 end
-
 
 function displayFPS()
     love.graphics.setFont(gFonts['small'])

@@ -1,4 +1,4 @@
-PlayState = Class{__includes = BaseState}
+PlayState = Class { __includes = BaseState }
 
 
 function PlayState:init()
@@ -9,7 +9,6 @@ function PlayState:init()
 
     self.lastY = -PIPE_HEIGHT + math.random(80) + 20
 end
-
 
 function PlayState:update(dt)
     self.pipeSpawnTimer = self.pipeSpawnTimer + dt
@@ -66,9 +65,7 @@ function PlayState:update(dt)
     end
 end
 
-
 function PlayState:render()
-
     self.bird:render()
 
     for k, pair in pairs(self.pipePairs) do

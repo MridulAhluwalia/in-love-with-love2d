@@ -1,4 +1,4 @@
-PipePair = Class{}
+PipePair = Class {}
 
 
 local GAP_HEIGHT = 90
@@ -17,7 +17,6 @@ function PipePair:init(y)
     }
 end
 
-
 function PipePair:update(dt)
     if self.x > -PIPE_WIDTH then
         self.x = self.x + -GROUND_SCROLL_SPEED * dt
@@ -27,7 +26,6 @@ function PipePair:update(dt)
         self.remove = true
     end
 end
-
 
 function PipePair:render()
     for k, pipe in pairs(self.pipes) do

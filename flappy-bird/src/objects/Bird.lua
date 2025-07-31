@@ -1,4 +1,4 @@
-Bird = Class{}
+Bird = Class {}
 
 
 local GRAVITY = 20
@@ -16,7 +16,6 @@ function Bird:init()
     self.dy = 0
 end
 
-
 function Bird:update(dt)
     self.dy = self.dy + GRAVITY * dt
 
@@ -28,11 +27,9 @@ function Bird:update(dt)
     self.y = self.y + self.dy
 end
 
-
 function Bird:render()
     love.graphics.draw(self.image, self.x, self.y)
 end
-
 
 function Bird:collides(pipe)
     if (self.x + self.width - 2) >= pipe.x and self.x <= (pipe.x + 2 + PIPE_WIDTH) then
