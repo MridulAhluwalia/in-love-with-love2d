@@ -1,4 +1,4 @@
-PlayState = Class{__includes = BaseState}
+PlayState = Class { __includes = BaseState }
 
 
 function PlayState:update(dt)
@@ -109,7 +109,6 @@ function PlayState:update(dt)
     player1:update(dt)
     player2:update(dt)
 end
-
 
 function PlayState:render()
     -- display score

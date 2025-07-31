@@ -1,4 +1,4 @@
-DoneState = Class{__includes = BaseState}
+DoneState = Class { __includes = BaseState }
 
 
 function DoneState:update(dt)
@@ -16,13 +16,12 @@ function DoneState:update(dt)
     end
 end
 
-
 function DoneState:render()
     love.graphics.setFont(gFonts['large'])
     love.graphics.printf(
         'Pong 1972',
         0,
-        VIRTUAL_HEIGHT/3 - 32,
+        VIRTUAL_HEIGHT / 3 - 32,
         VIRTUAL_WIDTH,
         'center'
     )
@@ -30,7 +29,7 @@ function DoneState:render()
     love.graphics.printf(
         'Player ' .. tostring(winningPlayer) .. ' wins!',
         0,
-        VIRTUAL_HEIGHT/2 - 32,
+        VIRTUAL_HEIGHT / 2 - 32,
         VIRTUAL_WIDTH,
         'center'
     )
@@ -39,7 +38,7 @@ function DoneState:render()
     love.graphics.printf(
         'Press Enter to Play Again!',
         0,
-        3 * VIRTUAL_HEIGHT/4,
+        3 * VIRTUAL_HEIGHT / 4,
         VIRTUAL_WIDTH,
         'center'
     )

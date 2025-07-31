@@ -23,13 +23,7 @@ function love.load()
         ['wall_hit'] = love.audio.newSource('sounds/wall_hit.wav', 'static')
     }
 
-    gTexture = {
-        ['universe'] = love.graphics.newImage('graphics/universe.png'),
-        ['planets'] = love.graphics.newImage('graphics/planets.png'),
-        ['ball'] = love.graphics.newImage('graphics/ball.png'),
-        ['paddle_1'] = love.graphics.newImage('graphics/paddle_1.png'),
-        ['paddle_2'] = love.graphics.newImage('graphics/paddle_2.png')
-    }
+    gTexture = {}
 
     gStateMachine = StateMachine {
         ['start'] = function() return StartState() end,
@@ -42,13 +36,11 @@ function love.load()
     love.keyboard.keysPressed = {}
 end
 
-
 function love.update(dt)
     gStateMachine:update(dt)
 
     love.keyboard.keysPressed = {}
 end
-
 
 function love.draw()
     push:start()
@@ -62,11 +54,9 @@ function love.draw()
     push:finish()
 end
 
-
 function love.resize(w, h)
     push:resize(w, h)
 end
-
 
 function love.keypressed(key)
     if key == 'escape' then
@@ -76,11 +66,9 @@ function love.keypressed(key)
     love.keyboard.keysPressed[key] = true
 end
 
-
 function love.keyboard.wasPressed(key)
     return love.keyboard.keysPressed[key]
 end
-
 
 function displayFPS()
     love.graphics.setFont(gFonts['small'])

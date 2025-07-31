@@ -1,4 +1,4 @@
-StartState = Class{__includes = BaseState}
+StartState = Class { __includes = BaseState }
 
 
 function StartState:update(dt)
@@ -9,13 +9,12 @@ function StartState:update(dt)
     end
 end
 
-
 function StartState:render()
     love.graphics.setFont(gFonts['large'])
     love.graphics.printf(
         'Pong 1972',
         0,
-        VIRTUAL_HEIGHT/2 - 32,
+        VIRTUAL_HEIGHT / 2 - 32,
         VIRTUAL_WIDTH,
         'center'
     )
@@ -24,7 +23,7 @@ function StartState:render()
     love.graphics.printf(
         'Press Enter to Start Game',
         0,
-        VIRTUAL_HEIGHT/1.5 - 32,
+        VIRTUAL_HEIGHT / 1.5 - 32,
         VIRTUAL_WIDTH,
         'center'
     )
