@@ -7,7 +7,7 @@ function PlayState:update(dt)
     -- ball collision with player 1
     if ball:collides(player1) then
         ball.dx = -ball.dx * 1.03
-        ball.x = player1.x + 5
+        ball.x = player1.x + 5 -- offset to avoid collision issues paddle width
 
         -- keep velocity going in the same direction, but randomize it
         if ball.dy < 0 then
@@ -22,7 +22,7 @@ function PlayState:update(dt)
     -- ball collision with player 2
     if ball:collides(player2) then
         ball.dx = -ball.dx * 1.03
-        ball.x = player2.x - 4
+        ball.x = player2.x - 4 -- offset to avoid collision issues ball width
 
         -- keep velocity going in the same direction, but randomize it
         if ball.dy < 0 then

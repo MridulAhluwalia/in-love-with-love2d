@@ -1,7 +1,7 @@
 Bird = Class {}
 
 
-local GRAVITY = 20
+local GRAVITY = 10
 
 
 function Bird:init()
@@ -20,7 +20,7 @@ function Bird:update(dt)
     self.dy = self.dy + GRAVITY * dt
 
     if love.keyboard.wasPressed('space') then
-        self.dy = -5
+        self.dy = -2
         gSounds['jump']:play()
     end
 

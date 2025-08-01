@@ -64,12 +64,16 @@ function love.load()
 end
 
 function love.update(dt)
+    -- adding a pause feature
+    if love.keyboard.wasPressed('p') then
+        scrolling = not scrolling
+    end
+
     if scrolling then
         backgroundScroll = (backgroundScroll + BACKGROUND_SCROLL_SPEED * dt) % BACKGROUND_LOOPING_POINT
         groundScroll = (groundScroll + GROUND_SCROLL_SPEED * dt) % VIRTUAL_WIDTH
+        gStateMachine:update(dt)
     end
-
-    gStateMachine:update(dt)
 
     love.keyboard.keysPressed = {}
 end

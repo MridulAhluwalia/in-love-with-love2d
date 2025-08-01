@@ -21,9 +21,9 @@ end
 function ServeState:update(dt)
     ball.dy = math.random(-50, 50)
     if servingPlayer == 1 then
-        ball.dx = 180
+        ball.dx = 120
     else
-        ball.dx = -180
+        ball.dx = -120
     end
 
     if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
