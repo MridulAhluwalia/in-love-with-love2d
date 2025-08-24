@@ -72,8 +72,7 @@ end
 
 function EnterHighScoreState:render()
     love.graphics.setFont(gFonts['medium'])
-    love.graphics.printf('Your score: ' .. tostring(self.score), 0, 30,
-        VIRTUAL_WIDTH, 'center')
+    love.graphics.printf('Your score: ' .. tostring(self.score), 0, 30, VIRTUAL_WIDTH, 'center')
 
     love.graphics.setFont(gFonts['large'])
 
@@ -99,6 +98,5 @@ function EnterHighScoreState:render()
     love.graphics.setColor(1, 1, 1, 1)
 
     love.graphics.setFont(gFonts['small'])
-    love.graphics.printf('Press Enter to confirm!', 0, VIRTUAL_HEIGHT - 18,
-        VIRTUAL_WIDTH, 'center')
+    love.graphics.printf('Press Enter to confirm!', 0, VIRTUAL_HEIGHT - 18, VIRTUAL_WIDTH, 'center')
 end

@@ -50,9 +50,6 @@ function Brick:init(x, y)
     -- particle system belonging to the brick, emitted on hit
     self.psystem = love.graphics.newParticleSystem(gTextures['particle'], 64)
 
-    -- various behavior-determining functions for the particle system
-    -- https://love2d.org/wiki/ParticleSystem
-
     -- lasts between 0.5-1 seconds seconds
     self.psystem:setParticleLifetime(0.5, 1)
 
@@ -64,10 +61,6 @@ function Brick:init(x, y)
     self.psystem:setEmissionArea('normal', 10, 10)
 end
 
---[[
-    Triggers a hit on the brick, taking it out of play if at 0 health or
-    changing its color otherwise.
-]]
 function Brick:hit()
     -- set the particle system to interpolate between two colors; in this case, we give
     -- it our self.color but with varying alpha; brighter for higher tiers, fading to 0
@@ -127,10 +120,6 @@ function Brick:render()
     end
 end
 
---[[
-    Need a separate render function for our particles so it can be called after all bricks are drawn;
-    otherwise, some bricks would render over other bricks' particle systems.
-]]
 function Brick:renderParticles()
     love.graphics.draw(self.psystem, self.x + 16, self.y + 8)
 end

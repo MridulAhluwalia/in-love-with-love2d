@@ -1,13 +1,13 @@
 PaddleSelectState = Class { __includes = BaseState }
 
 function PaddleSelectState:enter(params)
-    self.highScores = params.highScores
-end
-
-function PaddleSelectState:init()
     -- the paddle we're highlighting; will be passed to the ServeState
     -- when we press Enter
     self.currentPaddle = 1
+end
+
+function PaddleSelectState:init()
+    self.level = 1
 end
 
 function PaddleSelectState:update(dt)
@@ -30,31 +30,26 @@ function PaddleSelectState:update(dt)
     -- select paddle and move on to the serve state, passing in the selection
     if love.keyboard.wasPressed('return') or love.keyboard.wasPressed('enter') then
         gSounds['confirm']:play()
-
         gStateMachine:change('serve', {
             paddle = Paddle(self.currentPaddle),
-            bricks = LevelMaker.createMap(32),
+            bricks = LevelMaker.createMap(self.level),
+            level = self.level,
             health = 3,
-            score = 0,
-            highScores = self.highScores,
-            level = 1,
-            recoverPoints = 5000
+            score = 0
         })
     end
 
     if love.keyboard.wasPressed('escape') then
-        love.event.quit()
+        gStateMachine:change('start', {})
     end
 end
 
 function PaddleSelectState:render()
     -- instructions
     love.graphics.setFont(gFonts['medium'])
-    love.graphics.printf("Select your paddle with left and right!", 0, VIRTUAL_HEIGHT / 4,
-        VIRTUAL_WIDTH, 'center')
+    love.graphics.printf("Select your paddle with left and right!", 0, VIRTUAL_HEIGHT / 4, VIRTUAL_WIDTH, 'center')
     love.graphics.setFont(gFonts['small'])
-    love.graphics.printf("(Press Enter to continue!)", 0, VIRTUAL_HEIGHT / 3,
-        VIRTUAL_WIDTH, 'center')
+    love.graphics.printf("(Press Enter to continue!)", 0, VIRTUAL_HEIGHT / 3, VIRTUAL_WIDTH, 'center')
 
     -- left arrow; should render normally if we're higher than 1, else
     -- in a shadowy form to let us know we're as far left as we can go
@@ -83,6 +78,6 @@ function PaddleSelectState:render()
     love.graphics.setColor(1, 1, 1, 1)
 
     -- draw the paddle itself, based on which we have selected
-    love.graphics.draw(gTextures['main'], gFrames['paddles'][2 + 4 * (self.currentPaddle - 1)],
-        VIRTUAL_WIDTH / 2 - 32, VIRTUAL_HEIGHT - VIRTUAL_HEIGHT / 3)
+    love.graphics.draw(gTextures['main'], gFrames['paddles'][2 + 4 * (self.currentPaddle - 1)], VIRTUAL_WIDTH / 2 - 32,
+        VIRTUAL_HEIGHT - VIRTUAL_HEIGHT / 3)
 end
